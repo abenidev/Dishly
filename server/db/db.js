@@ -3,12 +3,12 @@ import config from './config.js';
 
 
 export function connectDB() {
-    config.development.postgres.client = connectToPostgres();
+    config.development.mariadb.client = connectToPostgres();
 }
 
 
 function connectToPostgres() {
-    const sequelize = new Sequelize(config.development.postgres.options);
+    const sequelize = new Sequelize(config.development.mariadb.options);
     sequelize.authenticate().then(() => {
         console.log('Connection has been established successfully.');
     }).catch((error) => {
